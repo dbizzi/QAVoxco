@@ -14,9 +14,21 @@ namespace UnitTestProject1.Pages
     
     public class SurveyListPage
     {
-        
-        public void TestMethod1()
+        private IWebDriver driver;
+
+        public SurveyListPage(IWebDriver driver)
         {
+            this.driver = driver;
+        }
+        public SurveyListPage createnewsurvey(String surveyname)
+        {
+            driver.FindElement(By.ClassName("acuity-tab")).Click();
+            driver.FindElement(By.ClassName("button dropdown-toggle important")).Click();
+            driver.FindElement(By.ClassName("h-new-survey")).Click();
+            driver.FindElement(By.ClassName("field")).FindElement(By.Id("Name")).SendKeys(surveyname);
+            driver.FindElement(By.ClassName("footer fixed")).FindElement(By.Id("Submit1")).Click();
+
+            return new SurveyListPage(driver);
         }
     }
 }

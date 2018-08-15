@@ -72,6 +72,7 @@
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\ProjectListPage.cs" />
     <Compile Include="Pages\SurveyListPage.cs" />
+    <Compile Include="TestCases\CreateSurvey.cs" />
     <Compile Include="TestCases\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
