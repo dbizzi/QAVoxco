@@ -28,9 +28,14 @@ namespace ConsoleApplication1.Steps
         [Test]
         public void createsurveysucess()
         {
+            LoginPage loginPage = new LoginPage(driver);
+            LoginPage homePage = loginPage.visit("http://mtl-lab-214/A4S/Multimode").validation("danielpii", "", "qa");
+
+            Assert.True(homePage.isValid());
             SurveyListPage surveylistpage = new SurveyListPage(driver);
             SurveyListPage newsurvey = surveylistpage.createnewsurvey("danielpii");
 
+            Assert.True(newsurvey.IsElementPresent());
                        
         }
         

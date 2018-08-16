@@ -22,13 +22,30 @@ namespace UnitTestProject1.Pages
         }
         public SurveyListPage createnewsurvey(String surveyname)
         {
-            driver.FindElement(By.ClassName("acuity-tab")).Click();
-            driver.FindElement(By.ClassName("button dropdown-toggle important")).Click();
-            driver.FindElement(By.ClassName("h-new-survey")).Click();
-            driver.FindElement(By.ClassName("field")).FindElement(By.Id("Name")).SendKeys(surveyname);
-            driver.FindElement(By.ClassName("footer fixed")).FindElement(By.Id("Submit1")).Click();
+
+            driver.FindElement(By.LinkText("Surveys")).Click();
+
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='View Recycle Bin'])[1]/following::div[2]")).Click();
+            
+            driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='New'])[1]/following::a[1]")).Click();
+            
+            driver.FindElement(By.Id("Name")).SendKeys(surveyname);
+            driver.FindElement(By.Id("submit1")).Click();
 
             return new SurveyListPage(driver);
         }
+        public Boolean IsElementPresent()
+        {
+            try
+            {
+                driver.FindElement(By.ClassName("name-label v-nameLabel"));
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+
     }
 }
